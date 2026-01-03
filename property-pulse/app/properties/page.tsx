@@ -1,6 +1,7 @@
 import React from "react";
 import properties from "@/properties.json";
 import type { Property } from "@/types/types";
+import ProperyCard from "@/components/ProperyCard";
 
 const Properties = () => {
   return (
@@ -8,7 +9,7 @@ const Properties = () => {
       <div className="container-xl lg:container m-auto px-4 py-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {properties.map((property) => (
-            <h1> {property.name} </h1>
+            <ProperyCard key={property?._id} property={property} />
           ))}
         </div>
       </div>
