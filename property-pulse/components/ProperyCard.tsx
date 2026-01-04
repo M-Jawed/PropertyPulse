@@ -22,9 +22,9 @@ const ProperyCard = ({ property }: { property: Property }) => {
   return (
     <div className="rounded-xl shadow-md relative">
       <Image
-        src={`/properties/${property.images[0]}`}
-        width={0}
-        height={0}
+        src={`/properties/${property.images?.[0]}`}
+        width={600}
+        height={400}
         alt=""
         className="w-full h-auto rounded-t-xl"
       />
