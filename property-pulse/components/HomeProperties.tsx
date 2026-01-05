@@ -1,14 +1,16 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import properties from "@/properties.json";
+import type { Property } from "@/types/types";
+import { fetchProperties } from "@/utils/requests";
 import { FaMoneyBill } from "react-icons/fa";
 import { FaBed } from "react-icons/fa";
 import { FaBath } from "react-icons/fa";
 import { FaRulerCombined } from "react-icons/fa";
 import { FaMapMarkerAlt } from "react-icons/fa";
 
-const HomeProperties = () => {
+const HomeProperties = async () => {
+  const properties = await fetchProperties();
   const randomProperties = properties.sort(() => Math.random() - Math.random());
   const sliceProperties = randomProperties.slice(0, 3);
 
@@ -24,7 +26,7 @@ const HomeProperties = () => {
               <p>No properties found</p>
             </div>
           ) : (
-            sliceProperties.map((property) => {
+            sliceProperties.map((property: Property) => {
               const getRatesDisplay = () => {
                 const { rates } = property;
 

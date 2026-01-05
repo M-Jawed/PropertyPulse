@@ -12,7 +12,7 @@ const connectDB = async () => {
   }
 
   try {
-    await mongoose.connect(mongodbURI);
+    await mongoose.connect(mongodbURI, { dbName: "propertypulsedb" });
     connected = true;
     console.log("Mongodb connected");
   } catch (err) {
