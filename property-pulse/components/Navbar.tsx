@@ -19,6 +19,7 @@ const Navbar = () => {
   > | null>(null);
 
   const { data: session } = useSession();
+  const profileImage = session?.user.image;
 
   const pathname = usePathname();
 
@@ -167,8 +168,10 @@ const Navbar = () => {
                     <span className="sr-only">Open user menu</span>
                     <Image
                       className="h-8 w-8 rounded-full"
-                      src={profileDefault}
+                      src={profileImage || profileDefault}
                       alt=""
+                      width={40}
+                      height={40}
                     />
                   </button>
                 </div>
@@ -183,33 +186,36 @@ const Navbar = () => {
                   aria-labelledby="user-menu-button"
                   tabIndex={1}
                 >
-                  <a
-                    href="/profile.html"
+                  <Link
+                    href="/profile"
                     className="block px-4 py-2 text-sm text-gray-700"
                     role="menuitem"
                     tabIndex={1}
                     id="user-menu-item-0"
                   >
                     Your Profile
-                  </a>
-                  <a
-                    href="saved-properties.html"
+                  </Link>
+                  <Link
+                    href="/saved-properties"
                     className="block px-4 py-2 text-sm text-gray-700"
                     role="menuitem"
                     tabIndex={1}
                     id="user-menu-item-2"
                   >
                     Saved Properties
-                  </a>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 text-sm text-gray-700"
+                  </Link>
+                  <button
+                    onClick={() => {
+                      setIsProfileMenuOpen(false);
+                      signOut();
+                    }}
+                    className="block px-4 py-2 text-sm text-gray-700 cursor-pointer hover:bg-gray-200 w-full text-start"
                     role="menuitem"
                     tabIndex={1}
                     id="user-menu-item-2"
                   >
                     Sign Out
-                  </a>
+                  </button>
                 </div>
               )}
             </div>
