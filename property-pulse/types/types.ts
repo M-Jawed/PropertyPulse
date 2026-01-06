@@ -1,3 +1,5 @@
+import type { Profile } from "next-auth";
+
 export type InfoBox = {
   heading: string;
   backgroundColor?: string;
@@ -42,4 +44,8 @@ export type Property = {
   is_featured: boolean;
   createdAt: string;
   updatedAt: string;
+};
+
+export type SignIn = {
+  profile: Profile;
 };

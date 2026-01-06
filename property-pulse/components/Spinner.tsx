@@ -4,7 +4,6 @@ import { CSSProperties } from "react";
 
 const override: CSSProperties = {
   color: "blue",
-  borderColor: "blue",
   margin: "100px auto",
 };
 
@@ -13,6 +12,7 @@ const Spinner = ({ loading }: { loading: boolean }) => {
     <div className="w-full flex items-center justify-center">
       <ClipLoader
         loading={loading}
+        color="blue"
         cssOverride={override}
         size={100}
         aria-label="Loading Spinner"
