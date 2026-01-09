@@ -1,4 +1,4 @@
-import type { Profile } from "next-auth";
+import type { Profile, Session } from "next-auth";
 
 export type InfoBox = {
   heading: string;
@@ -48,4 +48,35 @@ export type Property = {
 
 export type SignIn = {
   profile: Profile;
+};
+
+export type SessionProps = {
+  session: Session;
+};
+
+export type PropertyForm = {
+  name: string;
+  type: string;
+  description: string;
+  location: {
+    street: string;
+    city: string;
+    state: string;
+    zipcode: string;
+  };
+  beds: string;
+  baths: string;
+  square_feet: string;
+  amenities: string[];
+  rates: {
+    weekly?: string;
+    monthly?: string;
+    nightly?: string;
+  };
+  seller_info: {
+    name: string;
+    email: string;
+    phone: string;
+  };
+  images: string[];
 };
