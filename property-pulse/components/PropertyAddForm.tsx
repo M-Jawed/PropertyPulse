@@ -33,11 +33,65 @@ const PropertyAddForm = () => {
     images: [],
   });
 
-  const handleChange = () => {};
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >
+  ) => {
+    const { name, value } = e.target;
 
-  const handleAmenitiesChange = () => {};
+    if (name.includes(".")) {
+      const [outerKey, innerKey] = name.split(".");
+      setFields((prevFields) => ({
+        ...prevFields,
+        [outerKey]: {
+          ...prevFields[outerKey],
+          [innerKey]: value,
+        },
+      }));
+    }
+    setFields((prevFields) => ({
+      ...prevFields,
+      [name]: value,
+    }));
+  };
 
-  const handleImageChange = () => {};
+  const handleAmenitiesChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { value, checked } = e.target;
+
+    const updatedAmenities = [...fields.amenities];
+
+    if (checked) {
+      updatedAmenities.push(value);
+    } else {
+      const index = updatedAmenities.indexOf(value);
+      if (index !== -1) {
+        updatedAmenities.splice(index, 1);
+      }
+    }
+
+    setFields((prevFields) => ({
+      ...prevFields,
+      amenities: updatedAmenities,
+    }));
+  };
+
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { files } = e.target;
+
+    const updatedImages = [...fields.images];
+
+    if (!files) return;
+
+    for (let file of files) {
+      updatedImages.push(file);
+    }
+
+    setFields((prevFields) => ({
+      ...prevFields,
+      images: updatedImages,
+    }));
+  };
 
   useEffect(() => {
     setMounted(true);
