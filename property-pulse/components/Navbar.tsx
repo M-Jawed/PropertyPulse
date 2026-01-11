@@ -94,7 +94,7 @@ const Navbar = () => {
                 </Link>
                 {session && (
                   <Link
-                    href={"properties/add"}
+                    href={`${process.env.NEXT_PUBLIC_URL}/properties/add`}
                     className={` ${
                       pathname === "/properties/add" ? "bg-black" : ""
                     } text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2`}
@@ -192,6 +192,7 @@ const Navbar = () => {
                     role="menuitem"
                     tabIndex={1}
                     id="user-menu-item-0"
+                    onClick={() => setIsProfileMenuOpen(false)}
                   >
                     Your Profile
                   </Link>

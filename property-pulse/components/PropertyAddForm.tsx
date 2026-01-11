@@ -7,27 +7,27 @@ import type { PropertyForm } from "@/types/types";
 const PropertyAddForm = () => {
   const [mounted, setMounted] = useState<boolean>(false);
   const [fields, setFields] = useState<PropertyForm>({
-    type: "Apartment",
-    name: "Test Property",
+    type: "",
+    name: "",
     description: "",
     location: {
       street: "",
-      city: "Test City",
-      state: "Test State",
+      city: "",
+      state: "",
       zipcode: "",
     },
-    beds: "3",
-    baths: "2",
-    square_feet: "555",
+    beds: "",
+    baths: "",
+    square_feet: "",
     amenities: [""],
     rates: {
       weekly: "",
-      monthly: "2999",
-      nightly: "3000",
+      monthly: "",
+      nightly: "",
     },
     seller_info: {
       name: "",
-      email: "test@gmail.com",
+      email: "",
       phone: "",
     },
     images: [],
