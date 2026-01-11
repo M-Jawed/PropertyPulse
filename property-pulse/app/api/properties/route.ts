@@ -2,6 +2,35 @@ import connectDB from "@/config/db";
 import Property from "@/models/Property";
 import { NextRequest } from "next/server";
 import { getUserSession } from "@/utils/getUserSession";
+import cloudinary from "@/config/cloudinary";
+
+type PropertyForm = {
+  name: string;
+  type: string;
+  description: string;
+  location: {
+    street: string;
+    city: string;
+    state: string;
+    zipcode: string;
+  };
+  beds: string;
+  baths: string;
+  square_feet: string;
+  amenities: string[];
+  rates: {
+    weekly?: string;
+    monthly?: string;
+    nightly?: string;
+  };
+  seller_info: {
+    name: string;
+    email: string;
+    phone: string;
+  };
+  owner?: string;
+  images?: string[];
+};
 
 export const GET = async (request: NextRequest) => {
   try {
@@ -32,35 +61,59 @@ export const POST = async (request: NextRequest) => {
     const formData = await request.formData();
 
     const amenities = formData.getAll("amenities");
-    const images = formData.getAll("images").filter((image) => image !== "");
+    const images = formData
+      .getAll("images")
+      .filter((image) => image !== "") as File[];
 
-    const propertyData = {
-      type: formData.get("type"),
-      name: formData.get("name"),
-      description: formData.get("description"),
+    const propertyData: PropertyForm = {
+      type: formData.get("type") as string,
+      name: formData.get("name") as string,
+      description: formData.get("description") as string,
       location: {
-        street: formData.get("location.street"),
-        city: formData.get("location.city"),
-        state: formData.get("location.state"),
-        zipcode: formData.get("location.zipcode"),
+        street: formData.get("location.street") as string,
+        city: formData.get("location.city") as string,
+        state: formData.get("location.state") as string,
+        zipcode: formData.get("location.zipcode") as string,
       },
-      beds: formData.get("beds"),
-      baths: formData.get("baths"),
-      square_feet: formData.get("square_feet"),
-      amenities,
+      beds: formData.get("beds") as string,
+      baths: formData.get("baths") as string,
+      square_feet: formData.get("square_feet") as string,
+      amenities: amenities as string[],
       rates: {
-        weekly: formData.get("rates.weekly"),
-        monthly: formData.get("rates.monthly"),
-        nightly: formData.get("rates.nightly"),
+        weekly: formData.get("rates.weekly") as string,
+        monthly: formData.get("rates.monthly") as string,
+        nightly: formData.get("rates.nightly") as string,
       },
       seller_info: {
-        name: formData.get("seller_info.name"),
-        email: formData.get("seller_info.email"),
-        phone: formData.get("seller_info.phone"),
+        name: formData.get("seller_info.name") as string,
+        email: formData.get("seller_info.email") as string,
+        phone: formData.get("seller_info.phone") as string,
       },
-      owner: userId,
-      // images,
+      owner: userId as string,
     };
+
+    const imageUploadPromises = [];
+
+    for (let image of images) {
+      const imageBuffer = await image.arrayBuffer();
+      const imageArray = Array.from(new Uint8Array(imageBuffer));
+      const imageData = Buffer.from(imageArray);
+
+      const imageBase64 = imageData.toString("base64");
+
+      const result = await cloudinary.uploader.upload(
+        `data:image/png;base64,${imageBase64}`,
+        {
+          folder: "propertypulse",
+        }
+      );
+
+      imageUploadPromises.push(result.secure_url);
+
+      const uploadedImages = await Promise.all(imageUploadPromises);
+
+      propertyData.images = uploadedImages;
+    }
 
     const newProperty = new Property(propertyData);
     await newProperty.save();

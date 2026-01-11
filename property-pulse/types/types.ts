@@ -78,5 +78,6 @@ export type PropertyForm = {
     email: string;
     phone: string;
   };
-  images: File[];
+  owner?: string;
+  images?: File[];
 };
