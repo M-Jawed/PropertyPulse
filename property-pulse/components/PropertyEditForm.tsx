@@ -84,7 +84,7 @@ const PropertyEditForm = () => {
   const fetchPropertyData = async () => {
     if (!id) return;
 
-    const property = await fetchPropertyById(id);
+    const property = await fetchPropertyById(id as string);
   };
 
   const handleSubmit = async () => {};

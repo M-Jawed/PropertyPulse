@@ -22,7 +22,7 @@ const fetchPropertyById = async (id: string) => {
   if (!id) return;
 
   try {
-    if (!apiDomain) return [];
+    if (!apiDomain) return;
 
     const res = await fetch(`${apiDomain}/properties/${id}`);
     if (!res.ok) {
@@ -33,7 +33,7 @@ const fetchPropertyById = async (id: string) => {
     return data;
   } catch (error) {
     console.error("Failed to fetch", error);
-    return [];
+    return;
   }
 };
 
