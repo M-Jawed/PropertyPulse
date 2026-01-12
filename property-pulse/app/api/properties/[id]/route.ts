@@ -1,6 +1,7 @@
 import { NextRequest } from "next/server";
 import connectDB from "@/config/db";
 import Property from "@/models/Property";
+import { getUserSession } from "@/utils/getUserSession";
 
 // GET /properties/:id
 export const GET = async (
@@ -30,6 +31,50 @@ export const GET = async (
     console.error("failed to get the property details", error);
     return new Response(
       JSON.stringify({ message: "An error occured in this route", error }),
+      { status: 400 }
+    );
+  }
+};
+
+export const DELETE = async (
+  request: NextRequest,
+  { params }: { params: Promise<{ id: string }> }
+) => {
+  try {
+    await connectDB();
+
+    const { id } = await params;
+    const userSession = await getUserSession();
+
+    const property = await Property.findById(id);
+
+    if (!property)
+      return new Response(
+        JSON.stringify({ message: "No properties found with that id" }),
+        { status: 404 }
+      );
+
+    if (!userSession || !userSession?.user)
+      return new Response(
+        JSON.stringify({ message: "User is not logged in" }),
+        { status: 400 }
+      );
+
+    if (property.owner.toString() !== userSession.userId)
+      return new Response(JSON.stringify({ message: "Unauthorized" }), {
+        status: 401,
+      });
+
+    await property.deleteOne();
+
+    return new Response(JSON.stringify({ message: "Property deleted" }), {
+      status: 200,
+    });
+  } catch (error) {
+    return new Response(
+      JSON.stringify({
+        message: error instanceof Error ? error.message : String(error),
+      }),
       { status: 400 }
     );
   }

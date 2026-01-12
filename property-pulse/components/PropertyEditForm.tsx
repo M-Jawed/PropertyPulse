@@ -3,9 +3,11 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import type { PropertyForm } from "@/types/types";
+import { fetchPropertyById } from "@/utils/requests";
+import { useParams, useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 
-const PropertyAddForm = () => {
+const PropertyEditForm = () => {
   const [mounted, setMounted] = useState<boolean>(false);
   const [fields, setFields] = useState<PropertyForm>({
     type: "",
@@ -31,8 +33,10 @@ const PropertyAddForm = () => {
       email: "",
       phone: "",
     },
-    images: [],
   });
+
+  const { id } = useParams();
+  const router = useRouter();
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -77,33 +81,20 @@ const PropertyAddForm = () => {
     }));
   };
 
-  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { files } = e.target;
+  const fetchPropertyData = async () => {
+    if (!id) return;
 
-    const updatedImages = [...fields.images];
-
-    if (!files) return;
-
-    for (let file of files) {
-      updatedImages.push(file);
-    }
-
-    setFields((prevFields) => ({
-      ...prevFields,
-      images: updatedImages,
-    }));
+    const property = await fetchPropertyById(id);
   };
+
+  const handleSubmit = async () => {};
 
   useEffect(() => {
     setMounted(true);
   }, []);
   return (
     mounted && (
-      <form
-        action={"/api/properties"}
-        method="POST"
-        encType="multipart/form-data"
-      >
+      <form onSubmit={handleSubmit}>
         <h2 className="text-3xl text-center font-semibold mb-6">
           Add Property
         </h2>
@@ -550,25 +541,6 @@ const PropertyAddForm = () => {
           />
         </div>
 
-        <div className="mb-4">
-          <label
-            htmlFor="images"
-            className="block text-gray-700 font-bold mb-2"
-          >
-            Images (Select up to 4 images)
-          </label>
-          <input
-            type="file"
-            id="images"
-            name="images"
-            className="border rounded w-full py-2 px-3"
-            accept="image/*"
-            multiple
-            onChange={handleImageChange}
-            required
-          />
-        </div>
-
         <div>
           <button
             className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline"
@@ -582,4 +554,4 @@ const PropertyAddForm = () => {
   );
 };
 
-export default PropertyAddForm;
+export default PropertyEditForm;
