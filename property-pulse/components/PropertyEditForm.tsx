@@ -84,13 +84,59 @@ const PropertyEditForm = () => {
   const fetchPropertyData = async () => {
     if (!id) return;
 
-    const property = await fetchPropertyById(id as string);
+    try {
+      const property = await fetchPropertyById(id as string);
+      if (!property) return;
+      if (property && property.rates) {
+        const defaultRates = { ...property.rates };
+        for (let rate in defaultRates) {
+          if (defaultRates[rate] === null) {
+            defaultRates[rate] = "";
+          }
+        }
+        property.rates = defaultRates;
+      }
+      setFields(property);
+    } catch (error) {
+      console.error(error instanceof Error ? error.message : String(error));
+    }
   };
 
-  const handleSubmit = async () => {};
+  const handleSubmit = async (
+    e: React.FormEvent<HTMLFormElement>
+  ): Promise<void> => {
+    e.preventDefault();
+    try {
+      const formData = new FormData(e.currentTarget);
+
+      const res = await fetch(`/api/properties/${id}`, {
+        method: "PUT",
+        body: formData,
+      });
+
+      if (res.status === 200) {
+        router.push(`/properties/${id}`);
+        toast.success("Succesfully updated");
+        return;
+      }
+
+      if (res.status === 401) {
+        toast.error("Permission denied");
+        return;
+      }
+
+      if (!res.ok) {
+        toast.error("Something went wrong");
+      }
+    } catch (error) {
+      console.error(error instanceof Error ? error.message : String(error));
+    }
+  };
 
   useEffect(() => {
     setMounted(true);
+
+    fetchPropertyData();
   }, []);
   return (
     mounted && (
@@ -546,7 +592,7 @@ const PropertyEditForm = () => {
             className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline"
             type="submit"
           >
-            Add Property
+            Edit Property
           </button>
         </div>
       </form>
