@@ -81,3 +81,10 @@ export type PropertyForm = {
   owner?: string;
   images?: File[];
 };
+
+export type User = {
+  username: string;
+  email: string;
+  bookmarks: string[];
+  image: string;
+};
