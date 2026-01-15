@@ -29,7 +29,6 @@ const PropertyMap = ({ property }: { property: Property }) => {
       );
       const data = await res.json();
 
-      console.log(data);
       if (data.features.length === 0) {
         setGeocodeError(true);
         setLoading(false);
@@ -49,7 +48,6 @@ const PropertyMap = ({ property }: { property: Property }) => {
   useEffect(() => {
     if (!address) return;
     getGeocode();
-    console.log("this runs");
   }, [address]);
 
   if (loading) return <Spinner loading={loading} />;
