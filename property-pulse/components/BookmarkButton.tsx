@@ -14,21 +14,27 @@ const BookmarkButton = ({ property }: { property: Property | null }) => {
   const userId = session?.user?.id;
 
   const checkBookmark = async () => {
-    if (!userId) {
-      setLoading(false);
-      return;
-    }
-    const res = await fetch("/api/bookmarks/check", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ propertyId: property?._id }),
-    });
-    const data = await res.json();
+    try {
+      if (!userId) {
+        setLoading(false);
+        return;
+      }
+      const res = await fetch("/api/bookmarks/check", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ propertyId: property?._id }),
+      });
+      const data = await res.json();
 
-    if (res.status === 200) {
-      setBookmarked(data.isBookmarked);
+      if (res.status === 200) {
+        setBookmarked(data.isBookmarked);
+        setLoading(false);
+      }
+    } catch (error) {
+      console.error(error instanceof Error ? error.message : String(error));
+    } finally {
       setLoading(false);
     }
   };

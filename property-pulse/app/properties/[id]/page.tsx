@@ -10,7 +10,7 @@ import PropertyHeaderImage from "@/components/PropertyHeaderImage";
 import PropertyDetails from "@/components/PropertyDetails";
 import PropertyImages from "@/components/PropertyImages";
 import BookmarkButton from "@/components/BookmarkButton";
-import SharePropertyButton from "@/components/SharePropertyButton";
+import ShareButtons from "@/components/ShareButtons";
 import ContactForm from "@/components/ContactForm";
 import { FaArrowLeft } from "react-icons/fa";
 import Spinner from "@/components/Spinner";
@@ -74,7 +74,7 @@ const PropertyDetailsPage = () => {
             {/* <!-- Sidebar --> */}
             <aside className="space-y-4">
               <BookmarkButton property={property} />
-              <SharePropertyButton property={property} />
+              <ShareButtons property={property} />
               <ContactForm property={property} />
             </aside>
           </div>
