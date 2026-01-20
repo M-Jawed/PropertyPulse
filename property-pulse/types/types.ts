@@ -88,3 +88,17 @@ export type User = {
   bookmarks: string[];
   image: string;
 };
+
+export type Message = {
+  _id: string;
+  name: string;
+  email: string;
+  phone?: string;
+  body?: string;
+  read: boolean;
+  sender: User | { id: string; username?: string };
+  recipient: string;
+  property: Property | { id: string; name?: string };
+  createdAt: string;
+  updatedAt: string;
+};
