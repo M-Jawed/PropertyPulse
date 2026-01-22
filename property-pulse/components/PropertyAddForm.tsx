@@ -5,6 +5,10 @@ import { useState, useEffect } from "react";
 import type { PropertyForm } from "@/types/types";
 import { toast } from "react-toastify";
 
+type ObjectKeys<T> = {
+  [K in keyof T]: T[K] extends object ? K : never;
+}[keyof T];
+
 const PropertyAddForm = () => {
   const [mounted, setMounted] = useState<boolean>(false);
   const [fields, setFields] = useState<PropertyForm>({
@@ -43,7 +47,7 @@ const PropertyAddForm = () => {
 
     if (name.includes(".")) {
       const [outerKey, innerKey] = name.split(".") as [
-        keyof PropertyForm,
+        Extract<ObjectKeys<PropertyForm>, string>,
         string,
       ];
 
