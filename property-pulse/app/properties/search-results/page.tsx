@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import type { Property } from "@/types/types";
 import Spinner from "@/components/Spinner";
-import ProperyCard from "@/components/ProperyCard";
+import ProperyCard from "@/components/PropertyCard";
 import SearchForm from "@/components/SearchForm";
 import Link from "next/link";
 import { FaArrowAltCircleLeft } from "react-icons/fa";

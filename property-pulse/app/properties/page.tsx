@@ -1,33 +1,22 @@
 import React from "react";
 import type { Property } from "@/types/types";
-import ProperyCard from "@/components/ProperyCard";
+import ProperyCard from "@/components/PropertyCard";
 import { fetchProperties } from "@/utils/requests";
+import SearchForm from "@/components/SearchForm";
+import Properties from "@/components/Properties";
 
-const Properties = async () => {
-  const properties: Property[] = await fetchProperties();
-
-  properties.sort(
-    (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
-  );
+const PropertiesPage = async () => {
   return (
-    <section className="px-4 py-6">
-      <div className="container-xl lg:container m-auto px-4 py-6">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {properties.length === 0 ? (
-            <div className="w-full h-screen">
-              <p className="w-full text-center text-4xl font-medium">
-                No properties found
-              </p>
-            </div>
-          ) : (
-            properties.map((property: Property) => (
-              <ProperyCard key={property?._id} property={property} />
-            ))
-          )}
+    <>
+      <section>
+        <div className="bg-blue-700 py-6">
+          <SearchForm />
         </div>
-      </div>
-    </section>
+      </section>
+
+      <Properties />
+    </>
   );
 };
 
-export default Properties;
+export default PropertiesPage;

@@ -9,7 +9,7 @@ import { FaBath } from "react-icons/fa";
 import { FaRulerCombined } from "react-icons/fa";
 import { FaMapMarkerAlt } from "react-icons/fa";
 
-const ProperyCard = ({ property }: { property: Property }) => {
+const PropertyCard = ({ property }: { property: Property }) => {
   const getRatesDisplay = () => {
     const { rates } = property;
 
@@ -94,4 +94,4 @@ const ProperyCard = ({ property }: { property: Property }) => {
   );
 };
 
-export default ProperyCard;
+export default PropertyCard;

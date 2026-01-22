@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import type { Property } from "@/types/types";
 import { toast } from "react-toastify";
 import Spinner from "@/components/Spinner";
-import ProperyCard from "@/components/ProperyCard";
+import ProperyCard from "@/components/PropertyCard";
 
 const SavedPropertiesPage = () => {
   const [properties, setProperties] = useState<Property[]>([]);

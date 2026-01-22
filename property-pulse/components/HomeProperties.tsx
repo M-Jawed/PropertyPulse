@@ -10,8 +10,10 @@ import { FaRulerCombined } from "react-icons/fa";
 import { FaMapMarkerAlt } from "react-icons/fa";
 
 const HomeProperties = async () => {
-  const properties = await fetchProperties();
-  const randomProperties = properties.sort(() => Math.random() - Math.random());
+  const data = await fetchProperties();
+  const randomProperties = data.properties.sort(
+    () => Math.random() - Math.random(),
+  );
   const sliceProperties = randomProperties.slice(0, 3);
 
   return (
@@ -98,7 +100,8 @@ const HomeProperties = async () => {
                         <FaMapMarkerAlt className="inline mt-1" fill="red" />
                         <span className="text-orange-700">
                           {" "}
-                          {property.location.city} {property.location.state}{" "}
+                          {property.location.city}{" "}
+                          {property.location.state}{" "}
                         </span>
                       </div>
                       <Link

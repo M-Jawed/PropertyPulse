@@ -36,9 +36,21 @@ export const GET = async (request: NextRequest) => {
   try {
     await connectDB();
 
-    const properties = await Property.find({});
+    const page = Number(request.nextUrl.searchParams.get("page")) || 1;
+    const pageSize = Number(request.nextUrl.searchParams.get("pageSize")) || 6;
 
-    return new Response(JSON.stringify(properties), { status: 200 });
+    const skip = (page - 1) * pageSize;
+
+    const total = await Property.countDocuments();
+
+    const properties = await Property.find({}).skip(skip).limit(pageSize);
+
+    const result = {
+      total,
+      properties,
+    };
+
+    return new Response(JSON.stringify(result), { status: 200 });
   } catch (err) {
     return new Response("Failed to get route", { status: 404 });
   }
@@ -105,7 +117,7 @@ export const POST = async (request: NextRequest) => {
         `data:image/png;base64,${imageBase64}`,
         {
           folder: "propertypulse",
-        }
+        },
       );
 
       imageUploadPromises.push(result.secure_url);
@@ -119,7 +131,7 @@ export const POST = async (request: NextRequest) => {
     await newProperty.save();
 
     return Response.redirect(
-      `${process.env.NEXTAUTH_URL}/properties/${newProperty._id}`
+      `${process.env.NEXTAUTH_URL}/properties/${newProperty._id}`,
     );
   } catch (error) {
     return new Response(JSON.stringify({ message: error }), { status: 400 });
