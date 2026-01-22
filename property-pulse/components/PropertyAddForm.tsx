@@ -37,23 +37,29 @@ const PropertyAddForm = () => {
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
-    >
+    >,
   ) => {
     const { name, value } = e.target;
 
     if (name.includes(".")) {
-      const [outerKey, innerKey] = name.split(".");
-      setFields((prevFields) => ({
-        ...prevFields,
+      const [outerKey, innerKey] = name.split(".") as [
+        keyof PropertyForm,
+        string,
+      ];
+
+      setFields((prev) => ({
+        ...prev,
         [outerKey]: {
-          ...prevFields[outerKey],
+          ...(prev[outerKey] as Record<string, any>),
           [innerKey]: value,
         },
       }));
+      return;
     }
-    setFields((prevFields) => ({
-      ...prevFields,
-      [name]: value,
+
+    setFields((prev) => ({
+      ...prev,
+      [name as keyof PropertyForm]: value,
     }));
   };
 
@@ -80,7 +86,7 @@ const PropertyAddForm = () => {
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { files } = e.target;
 
-    const updatedImages = [...fields.images];
+    const updatedImages = [...fields.images!];
 
     if (!files) return;
 
