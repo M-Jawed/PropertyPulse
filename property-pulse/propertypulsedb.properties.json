@@ -1,0 +1,541 @@
+[
+  {
+    "_id": {
+      "$oid": "696265d77632efd48dc258f5"
+    },
+    "owner": "695d278f55695f2a3eea9570",
+    "name": "Kevins Apartment",
+    "type": "Apartment",
+    "description": "A very cozy apartment",
+    "location": {
+      "street": "oBlock 12th,",
+      "city": "Test City",
+      "state": "Test State",
+      "zipcode": "5564"
+    },
+    "beds": 5,
+    "baths": 3,
+    "square_feet": 5557,
+    "amenities": [
+      "Wifi",
+      "Full Kitchen",
+      "Washer & Dryer",
+      "Free Parking",
+      "Swimming Pool",
+      "Hot Tub",
+      "24/7 Security",
+      "Wheelchair Accessible",
+      "Elevator Access"
+    ],
+    "rates": {
+      "weekly": 1000,
+      "nightly": 200,
+      "monthly": 8000
+    },
+    "seller_info": {
+      "name": "Kevin Doe",
+      "email": "kevin@gmail.com",
+      "phone": "999-555-5555"
+    },
+    "images": [
+      "https://res.cloudinary.com/djewvjn2w/image/upload/v1768056277/propertypulse/mpbdqg08zfijotblpnjd.jpg",
+      "https://res.cloudinary.com/djewvjn2w/image/upload/v1768056278/propertypulse/ympitpnjboybbwsudwni.jpg",
+      "https://res.cloudinary.com/djewvjn2w/image/upload/v1768056279/propertypulse/eewemjempwqnzmzcufu3.jpg"
+    ],
+    "is_featured": false,
+    "createdAt": {
+      "$date": "2026-01-10T14:44:39.426Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-10T14:44:39.426Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6963538af24362cada8fb7ae"
+    },
+    "owner": "695d278f55695f2a3eea9570",
+    "name": "Boston Commons Retreat",
+    "type": "Apartment",
+    "description": "This is a beautiful apartment located near the commons. It is a 2 bedroom apartment with a full kitchen and bathroom. It is available for weekly or monthly rentals.",
+    "location": {
+      "street": "120 Tremont Street",
+      "city": "Boston",
+      "state": "MA",
+      "zipcode": "02108"
+    },
+    "beds": 2,
+    "baths": 1,
+    "square_feet": 1500,
+    "amenities": [
+      "Wifi",
+      "Full Kitchen",
+      "Washer & Dryer",
+      "Free Parking",
+      "Hot Tub",
+      "24/7 Security",
+      "Wheelchair Accessible",
+      "Elevator Access",
+      "Dishwasher",
+      "Gym/Fitness Center",
+      "Air Conditioning",
+      "Balcony/Patio",
+      "Smart TV",
+      "Coffee Maker"
+    ],
+    "rates": {
+      "weekly": 1100,
+      "nightly": 3000,
+      "monthly": 4200
+    },
+    "seller_info": {
+      "name": "John Doe",
+      "email": "john@gmail.com",
+      "phone": "617-555-5555"
+    },
+    "images": [
+      "https://res.cloudinary.com/djewvjn2w/image/upload/v1768117127/propertypulse/acpygmiyol5z0bkp6u2v.jpg",
+      "https://res.cloudinary.com/djewvjn2w/image/upload/v1768117128/propertypulse/bvetz5nz6vgiqucggqto.jpg",
+      "https://res.cloudinary.com/djewvjn2w/image/upload/v1768117129/propertypulse/kcdtnx99j7waix3l46yk.jpg"
+    ],
+    "is_featured": false,
+    "createdAt": {
+      "$date": "2026-01-11T07:38:50.293Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-11T07:38:50.293Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "696354d0f24362cada8fb7ba"
+    },
+    "owner": "695d278f55695f2a3eea9570",
+    "name": "Cozy Downtown Loft",
+    "type": "Apartment",
+    "description": "A cozy downtown loft with great city views.",
+    "location": {
+      "street": "45 Main Street",
+      "city": "New York",
+      "state": "NY",
+      "zipcode": "10001"
+    },
+    "beds": 1,
+    "baths": 1,
+    "square_feet": 1800,
+    "amenities": [
+      "Wifi",
+      "Full Kitchen",
+      "Washer & Dryer",
+      "Free Parking",
+      "Hot Tub",
+      "24/7 Security",
+      "Wheelchair Accessible",
+      "Elevator Access",
+      "Dishwasher",
+      "Air Conditioning",
+      "Smart TV"
+    ],
+    "rates": {
+      "weekly": 1000,
+      "nightly": null,
+      "monthly": 4000
+    },
+    "seller_info": {
+      "name": "Jane Smith",
+      "email": "jane@gmail.com",
+      "phone": "212-555-5555"
+    },
+    "images": [
+      "https://res.cloudinary.com/djewvjn2w/image/upload/v1768117454/propertypulse/hsiyrulezybabppwtpwn.jpg",
+      "https://res.cloudinary.com/djewvjn2w/image/upload/v1768117455/propertypulse/olh7qesyvfyijk97ivkr.jpg",
+      "https://res.cloudinary.com/djewvjn2w/image/upload/v1768117456/propertypulse/il1tnzybvhb3cihzqbrh.jpg"
+    ],
+    "is_featured": false,
+    "createdAt": {
+      "$date": "2026-01-11T07:44:16.836Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-11T07:44:16.836Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "69635553f24362cada8fb7bf"
+    },
+    "owner": "695d278f55695f2a3eea9570",
+    "name": "Luxury Condo with a View",
+    "type": "Condo",
+    "description": "Experience luxury in this stunning condo with breathtaking views.",
+    "location": {
+      "street": "500 Lux Lane",
+      "city": "Los Angeles",
+      "state": "CA",
+      "zipcode": "90001"
+    },
+    "beds": 3,
+    "baths": 2,
+    "square_feet": 2200,
+    "amenities": [
+      "Wifi",
+      "Full Kitchen",
+      "Washer & Dryer",
+      "Free Parking",
+      "Hot Tub",
+      "24/7 Security",
+      "Wheelchair Accessible",
+      "Elevator Access",
+      "Dishwasher",
+      "Gym/Fitness Center",
+      "Air Conditioning",
+      "Smart TV",
+      "Coffee Maker"
+    ],
+    "rates": {
+      "weekly": 750,
+      "nightly": 200,
+      "monthly": 3300
+    },
+    "seller_info": {
+      "name": "David Johnson",
+      "email": "davin@gmail.com",
+      "phone": "213-555-5555"
+    },
+    "images": [
+      "https://res.cloudinary.com/djewvjn2w/image/upload/v1768117585/propertypulse/xjfpiqqpdnriaywoul0n.jpg",
+      "https://res.cloudinary.com/djewvjn2w/image/upload/v1768117586/propertypulse/aubl7xdge4klliuatl1q.jpg",
+      "https://res.cloudinary.com/djewvjn2w/image/upload/v1768117587/propertypulse/rvislaz9d9mo1gihareg.jpg"
+    ],
+    "is_featured": false,
+    "createdAt": {
+      "$date": "2026-01-11T07:46:27.753Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-11T07:46:27.753Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "696355ccf24362cada8fb7c6"
+    },
+    "owner": "695d278f55695f2a3eea9570",
+    "name": "Charming Cottage Getaway",
+    "type": "Cabin Or Cottage",
+    "description": "Escape to this charming cottage for a peaceful retreat.",
+    "location": {
+      "street": "123 Countryside Lane",
+      "city": "Austin",
+      "state": "TX",
+      "zipcode": "78701"
+    },
+    "beds": 1,
+    "baths": 1,
+    "square_feet": 900,
+    "amenities": ["Free Parking", "Hot Tub", "Balcony/Patio", "Coffee Maker"],
+    "rates": {
+      "weekly": null,
+      "nightly": 3000,
+      "monthly": 2999
+    },
+    "seller_info": {
+      "name": "Emily Davis",
+      "email": "emily@gmail.com",
+      "phone": "512-555-5555"
+    },
+    "images": [
+      "https://res.cloudinary.com/djewvjn2w/image/upload/v1768117706/propertypulse/jnjlyntgogk2xfmjqw7q.jpg",
+      "https://res.cloudinary.com/djewvjn2w/image/upload/v1768117706/propertypulse/urky0oce8tsewq6u8t7s.jpg",
+      "https://res.cloudinary.com/djewvjn2w/image/upload/v1768117707/propertypulse/zmf66xmcarneb0toghns.jpg"
+    ],
+    "is_featured": false,
+    "createdAt": {
+      "$date": "2026-01-11T07:48:28.304Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-11T07:48:28.304Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6963566af24362cada8fb7cf"
+    },
+    "owner": "696355d7f24362cada8fb7cb",
+    "name": "Modern Downtown Studio",
+    "type": "Studio",
+    "description": "Stay in style in this modern downtown studio apartment.",
+    "location": {
+      "street": "75 Urban Avenue",
+      "city": "Chicago",
+      "state": "IL",
+      "zipcode": "60601"
+    },
+    "beds": 1,
+    "baths": 1,
+    "square_feet": 900,
+    "amenities": [
+      "Wifi",
+      "Free Parking",
+      "Gym/Fitness Center",
+      "Air Conditioning",
+      "Smart TV"
+    ],
+    "rates": {
+      "weekly": 1100,
+      "nightly": null,
+      "monthly": 4200
+    },
+    "seller_info": {
+      "name": "Michael Brown",
+      "email": "michael@gmail.com",
+      "phone": "512-555-5555"
+    },
+    "images": [
+      "https://res.cloudinary.com/djewvjn2w/image/upload/v1768117863/propertypulse/ptrozjbfy0zj4m2z3id9.jpg",
+      "https://res.cloudinary.com/djewvjn2w/image/upload/v1768117864/propertypulse/jl0zijsaq2n5cq9pqgdv.jpg",
+      "https://res.cloudinary.com/djewvjn2w/image/upload/v1768117864/propertypulse/lqprkwpejv5fb4cxgpmp.jpg",
+      "https://res.cloudinary.com/djewvjn2w/image/upload/v1768117865/propertypulse/fbfkpmlgmjxinstmn0gb.jpg"
+    ],
+    "is_featured": false,
+    "createdAt": {
+      "$date": "2026-01-11T07:51:06.121Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-11T07:51:06.121Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "696356c8f24362cada8fb7d4"
+    },
+    "owner": "696355d7f24362cada8fb7cb",
+    "name": "Seaside Retreat",
+    "type": "House",
+    "description": "Escape to this seaside house for a relaxing getaway.",
+    "location": {
+      "street": "456 Oceanfront Drive",
+      "city": "Miami",
+      "state": "FL",
+      "zipcode": "33101"
+    },
+    "beds": 4,
+    "baths": 3,
+    "square_feet": 2800,
+    "amenities": [
+      "Washer & Dryer",
+      "Swimming Pool",
+      "Balcony/Patio",
+      "Smart TV",
+      "Coffee Maker"
+    ],
+    "rates": {
+      "weekly": 2500,
+      "nightly": 500,
+      "monthly": null
+    },
+    "seller_info": {
+      "name": "Sarah Wilson",
+      "email": "sarah@gmail.com",
+      "phone": "512-555-5555"
+    },
+    "images": [
+      "https://res.cloudinary.com/djewvjn2w/image/upload/v1768117958/propertypulse/onc7k5nvf3zqk2ttuit1.jpg",
+      "https://res.cloudinary.com/djewvjn2w/image/upload/v1768117959/propertypulse/jgncjbdeweacqpmcv3tb.jpg",
+      "https://res.cloudinary.com/djewvjn2w/image/upload/v1768117959/propertypulse/eq58oupaw1nh4o0kpsjh.jpg"
+    ],
+    "is_featured": false,
+    "createdAt": {
+      "$date": "2026-01-11T07:52:40.354Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-11T07:52:40.354Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "69635735f24362cada8fb7d9"
+    },
+    "owner": "696355d7f24362cada8fb7cb",
+    "name": "Rustic Cabin in the Woods",
+    "type": "Cabin Or Cottage",
+    "description": "Experience nature in this cozy rustic cabin.",
+    "location": {
+      "street": "789 Forest Lane",
+      "city": "Denver",
+      "state": "CO",
+      "zipcode": "80201"
+    },
+    "beds": 2,
+    "baths": 1,
+    "square_feet": 1100,
+    "amenities": [
+      "Hot Tub",
+      "Gym/Fitness Center",
+      "Balcony/Patio",
+      "Coffee Maker"
+    ],
+    "rates": {
+      "weekly": 2000,
+      "nightly": 475,
+      "monthly": null
+    },
+    "seller_info": {
+      "name": "Robert Anderson",
+      "email": "robert@gmail.com",
+      "phone": "303-555-5555"
+    },
+    "images": [
+      "https://res.cloudinary.com/djewvjn2w/image/upload/v1768118066/propertypulse/zrofk1qwmglgiyznyqu7.jpg",
+      "https://res.cloudinary.com/djewvjn2w/image/upload/v1768118067/propertypulse/efzgim1gh44mqrjjidza.jpg",
+      "https://res.cloudinary.com/djewvjn2w/image/upload/v1768118067/propertypulse/ugvibltzopp2gsvadrwq.jpg",
+      "https://res.cloudinary.com/djewvjn2w/image/upload/v1768118068/propertypulse/pevctyhutnyswgqleomw.jpg"
+    ],
+    "is_featured": false,
+    "createdAt": {
+      "$date": "2026-01-11T07:54:29.069Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-11T07:54:29.069Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "696359f1f24362cada8fb7df"
+    },
+    "owner": "696355d7f24362cada8fb7cb",
+    "name": "Ski-In/Ski-Out Chalet",
+    "type": "Other",
+    "description": "Hit the slopes from this cozy ski-in/ski-out chalet.",
+    "location": {
+      "street": "321 Mountain Road",
+      "city": "Aspen",
+      "state": "CO",
+      "zipcode": "81611"
+    },
+    "beds": 3,
+    "baths": 2,
+    "square_feet": 1800,
+    "amenities": ["Wifi", "Full Kitchen", "Balcony/Patio", "Smart TV"],
+    "rates": {
+      "weekly": 1100,
+      "monthly": null,
+      "nightly": 300
+    },
+    "seller_info": {
+      "name": "Jennifer Martin",
+      "email": "jennifer@gmail.com",
+      "phone": "970-555-5555"
+    },
+    "images": [
+      "https://res.cloudinary.com/djewvjn2w/image/upload/v1768118767/propertypulse/c8cjedti9updubp9kdbs.jpg",
+      "https://res.cloudinary.com/djewvjn2w/image/upload/v1768118767/propertypulse/axkkb62toflx3lu5cfpv.jpg",
+      "https://res.cloudinary.com/djewvjn2w/image/upload/v1768118768/propertypulse/pkz3k6th9bjc0br69t1u.jpg"
+    ],
+    "is_featured": false,
+    "createdAt": {
+      "$date": "2026-01-11T08:06:09.384Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-12T13:55:02.350Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "69635a6df24362cada8fb7e7"
+    },
+    "owner": "696355d7f24362cada8fb7cb",
+    "name": "Mountain View Retreat",
+    "type": "House",
+    "description": "Enjoy stunning mountain views from this spacious retreat.",
+    "location": {
+      "street": "600 Summit Drive",
+      "city": "Boulder",
+      "state": "CO",
+      "zipcode": "80301"
+    },
+    "beds": 4,
+    "baths": 3,
+    "square_feet": 2400,
+    "amenities": [
+      "Wifi",
+      "Full Kitchen",
+      "Dishwasher",
+      "Air Conditioning",
+      "Smart TV",
+      "Coffee Maker"
+    ],
+    "rates": {
+      "weekly": 1000,
+      "nightly": null,
+      "monthly": 3800
+    },
+    "seller_info": {
+      "name": "Lisa Taylor",
+      "email": "lisa@gmail.com",
+      "phone": "303-555-5555"
+    },
+    "images": [
+      "https://res.cloudinary.com/djewvjn2w/image/upload/v1768118891/propertypulse/jbbm885midlrm2lxaq2m.jpg",
+      "https://res.cloudinary.com/djewvjn2w/image/upload/v1768118892/propertypulse/foji0hgypddnxj7umuyu.jpg",
+      "https://res.cloudinary.com/djewvjn2w/image/upload/v1768118893/propertypulse/p2vyqkjxnz2aynkhg4zo.jpg"
+    ],
+    "is_featured": false,
+    "createdAt": {
+      "$date": "2026-01-11T08:08:13.837Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-11T08:08:13.837Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "69635acdf24362cada8fb7ec"
+    },
+    "owner": "696355d7f24362cada8fb7cb",
+    "name": "Historic Downtown Loft",
+    "type": "Apartment",
+    "description": "Step back in time with a stay in this historic downtown loft.",
+    "location": {
+      "street": "123 History Lane",
+      "city": "Philadelphia",
+      "state": "PA",
+      "zipcode": "19101"
+    },
+    "beds": 2,
+    "baths": 1,
+    "square_feet": 1200,
+    "amenities": ["Wifi", "Air Conditioning", "Smart TV", "Coffee Maker"],
+    "rates": {
+      "weekly": 550,
+      "monthly": 2100,
+      "nightly": null
+    },
+    "seller_info": {
+      "name": "Mathew Harris",
+      "email": "test@gmail.com",
+      "phone": "215-555-5555"
+    },
+    "images": [
+      "https://res.cloudinary.com/djewvjn2w/image/upload/v1768118987/propertypulse/olgezkou7anjo3ijaorh.jpg",
+      "https://res.cloudinary.com/djewvjn2w/image/upload/v1768118988/propertypulse/bhsl6gsfr3vuyfyuablj.jpg",
+      "https://res.cloudinary.com/djewvjn2w/image/upload/v1768118989/propertypulse/ua2swqgefwhrafhkulcw.jpg"
+    ],
+    "is_featured": false,
+    "createdAt": {
+      "$date": "2026-01-11T08:09:49.910Z"
+    },
+    "updatedAt": {
+      "$date": "2026-01-13T14:16:02.554Z"
+    },
+    "__v": 0
+  }
+]

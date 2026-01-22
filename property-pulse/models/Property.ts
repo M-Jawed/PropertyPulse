@@ -76,9 +76,10 @@ const PropertySchema = new Schema(
 
     is_featured: {
       type: Boolean,
+      default: false,
     },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
 const Property = models.Property || model("Property", PropertySchema);
