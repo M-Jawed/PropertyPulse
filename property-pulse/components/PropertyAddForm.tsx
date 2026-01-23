@@ -9,6 +9,8 @@ type ObjectKeys<T> = {
   [K in keyof T]: T[K] extends object ? K : never;
 }[keyof T];
 
+type NestedKeys = "location" | "rates" | "seller_info";
+
 const PropertyAddForm = () => {
   const [mounted, setMounted] = useState<boolean>(false);
   const [fields, setFields] = useState<PropertyForm>({
@@ -46,18 +48,22 @@ const PropertyAddForm = () => {
     const { name, value } = e.target;
 
     if (name.includes(".")) {
-      const [outerKey, innerKey] = name.split(".") as [
-        Extract<ObjectKeys<PropertyForm>, string>,
-        string,
-      ];
+      const [outerKey, innerKey] = name.split(".");
 
-      setFields((prev) => ({
-        ...prev,
-        [outerKey]: {
-          ...(prev[outerKey] as Record<string, any>),
-          [innerKey]: value,
-        },
-      }));
+      if (
+        outerKey === "location" ||
+        outerKey === "rates" ||
+        outerKey === "seller_info"
+      ) {
+        setFields((prev) => ({
+          ...prev,
+          [outerKey]: {
+            ...prev[outerKey],
+            [innerKey]: value,
+          },
+        }));
+      }
+
       return;
     }
 

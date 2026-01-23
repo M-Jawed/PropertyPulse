@@ -22,7 +22,7 @@ const SharePropertyButton = ({ property }: { property: Property | null }) => {
       <div className="flex items-center justify-center gap-3 mt-2">
         <FacebookShareButton
           url={shareUrl}
-          quote={`Check out this property for renting ${property?.name}`}
+          title={`Check out this property for renting ${property?.name}`}
           hashtag={`${property?.type.replace(/\s/g, "")}`}
         >
           <FacebookIcon size={40} round={true} />
