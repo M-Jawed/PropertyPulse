@@ -5,12 +5,6 @@ import { useState, useEffect } from "react";
 import type { PropertyForm } from "@/types/types";
 import { toast } from "react-toastify";
 
-type ObjectKeys<T> = {
-  [K in keyof T]: T[K] extends object ? K : never;
-}[keyof T];
-
-type NestedKeys = "location" | "rates" | "seller_info";
-
 const PropertyAddForm = () => {
   const [mounted, setMounted] = useState<boolean>(false);
   const [fields, setFields] = useState<PropertyForm>({
@@ -26,11 +20,11 @@ const PropertyAddForm = () => {
     beds: "",
     baths: "",
     square_feet: "",
-    amenities: [""],
+    amenities: [],
     rates: {
-      weekly: "",
-      monthly: "",
-      nightly: "",
+      weekly: undefined,
+      monthly: undefined,
+      nightly: undefined,
     },
     seller_info: {
       name: "",
@@ -58,7 +52,7 @@ const PropertyAddForm = () => {
         setFields((prev) => ({
           ...prev,
           [outerKey]: {
-            ...prev[outerKey],
+            ...(prev[outerKey] as Record<string, any>),
             [innerKey]: value,
           },
         }));

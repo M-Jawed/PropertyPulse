@@ -41,20 +41,29 @@ const PropertyEditForm = () => {
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
-    >
+    >,
   ) => {
     const { name, value } = e.target;
 
     if (name.includes(".")) {
       const [outerKey, innerKey] = name.split(".");
-      setFields((prevFields) => ({
-        ...prevFields,
-        [outerKey]: {
-          ...prevFields[outerKey],
-          [innerKey]: value,
-        },
-      }));
+
+      if (
+        outerKey === "location" ||
+        outerKey === "rates" ||
+        outerKey === "seller_info"
+      ) {
+        setFields((prevFields) => ({
+          ...prevFields,
+          [outerKey]: {
+            ...(prevFields[outerKey] as any),
+            [innerKey]: value,
+          },
+        }));
+      }
+      return;
     }
+
     setFields((prevFields) => ({
       ...prevFields,
       [name]: value,
@@ -103,7 +112,7 @@ const PropertyEditForm = () => {
   };
 
   const handleSubmit = async (
-    e: React.FormEvent<HTMLFormElement>
+    e: React.FormEvent<HTMLFormElement>,
   ): Promise<void> => {
     e.preventDefault();
     try {

@@ -3,20 +3,23 @@ const apiDomain = process.env.NEXT_PUBLIC_API ?? null;
 const fetchProperties = async ({ showFeatured = false } = {}) => {
   try {
     if (!apiDomain) {
-      return [];
+      return { properties: [] };
     }
     const res = await fetch(
       `${apiDomain}/properties${showFeatured ? "/featured" : ""}`,
+      {
+        cache: "no-store",
+      },
     );
     if (!res.ok) {
       console.error("Failed to fetch properties");
-      return;
+      return { properties: [] };
     }
     const data = await res.json();
     return data;
   } catch (err) {
     console.error(err instanceof Error ? err.message : String(err));
-    return [];
+    return { properties: [] };
   }
 };
 

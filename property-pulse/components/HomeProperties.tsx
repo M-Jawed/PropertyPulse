@@ -11,6 +11,11 @@ import { FaMapMarkerAlt } from "react-icons/fa";
 
 const HomeProperties = async () => {
   const data = await fetchProperties();
+
+  if (!data || !data.properties || !Array.isArray(data.properties)) {
+    return <div>No properties available</div>;
+  }
+
   const randomProperties = data.properties.sort(
     () => Math.random() - Math.random(),
   );
