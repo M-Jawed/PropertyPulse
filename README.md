@@ -73,6 +73,7 @@ Link: https://property-pulse-delta.vercel.app/
 - Working with libraries
 - Working with mongodb
 - Working with mongoose
+- Adding pagination
 - Handling sign in and sign out
 - Server vs Client Components
 - Implementing map in nextjs
