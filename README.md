@@ -20,6 +20,7 @@ Link: https://property-pulse-delta.vercel.app/
 - Notifications
 - Edit a property ( for owners )
 - Remove a property ( for owners )
+- Pagination
 
 
 ## Tech Stack
