@@ -80,5 +80,7 @@ Link: https://property-pulse-delta.vercel.app/
 - Adding response design
 - Debugging Typescript issues
 
+This project was from the course Nextjs from scratch by packt on coursera.
+
 Thank you for taking a look at this repository, this was a big project for me and I hope in the near future I can work on bigger projects. 
   
